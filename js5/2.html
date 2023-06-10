@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Book {
+  constructor(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
+
+  getInfo() {
+    console.log(`"${this.title}" by ${this.author}, published in ${this.year}.`);
+  }
+
+  getAge() {
+    const age = new Date().getFullYear() - this.year;
+    console.log(`"${this.title}" is ${age} years old.`);
+  }
+
+  changeAuthor(newAuthor) {
+    this.author = newAuthor;
+    console.log(`The author of "${this.title}" has been changed to ${this.author}.`);
+  }
+}
+
+const book1 = new Book('To Kill a Mockingbird', 'Harper Lee', 1960);
+book1.getInfo(); // "To Kill a Mockingbird" by Harper Lee, published in 1960.
+book1.getAge(); // "To Kill a Mockingbird" is 61 years old.
+book1.changeAuthor('Truman Capote'); // The author of "To Kill a Mockingbird" has been changed to Truman Capote.
+
+const book2 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', 1925);
+book2.getInfo(); // "The Great Gatsby" by F. Scott Fitzgerald, published in 1925.
+book2.getAge(); // "The Great Gatsby" is 96 years old.
+book2.changeAuthor('Ernest Hemingway'); // The author of "The Great Gatsby" has been changed to Ernest Hemingway.
+</script>
+
+</body>
+</html>

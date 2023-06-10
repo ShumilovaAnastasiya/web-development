@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  fetch('products.json')
+  .then(response => response.json())
+  .then(data => {
+    // Обработка данных
+  })
+  .catch(error => console.error(error));
+const filterProducts = (data, category, minPrice, inStockOnly) =>
+  data.products.filter(product =>
+    (!category || product.category === category) &&
+    (!minPrice || product.price >= minPrice) &&
+    (!inStockOnly || product.inStock)
+  );
+
+// Пример использования
+fetch('products.json')
+  .then(response => response.json())
+  .then(data => {
+    const filteredProducts = filterProducts(data, 'phones', 900, true);
+    // Обработка отфильтрованных продуктов
+  })
+  .catch(error => console.error(error));
+</script>
+</body>
+</html>

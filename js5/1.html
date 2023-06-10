@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+const products = [
+  { name: 'iPhone 12 Pro', price: 999, category: 'phones', inStock: true },
+  { name: 'Samsung Galaxy S21', price: 899, category: 'phones', inStock: false },
+  { name: 'Apple Watch Series 6', price: 399, category: 'wearables', inStock: true },
+  { name: 'Samsung Galaxy Watch 3', price: 349, category: 'wearables', inStock: true },
+  { name: 'Amazon Echo Dot', price: 49, category: 'smart-home', inStock: true },
+  { name: 'Google Nest Mini', price: 49, category: 'smart-home', inStock: false }
+];
+
+const showProducts = (products, category, minPrice, inStockOnly) => {
+  const filteredProducts = products.filter(product =>
+    (!category || product.category === category) &&
+    (!minPrice || product.price >= minPrice) &&
+    (!inStockOnly || product.inStock)
+  );
+  const productsHTML = filteredProducts.map(product =>
+    `<li>${product.name} - ${product.price}$</li>`
+  ).join('');
+  document.querySelector('#productsList').innerHTML = productsHTML;
+};
+
+showProducts(products);
+
+// Filter by category and minimum price:
+document.querySelector('#filterBtn').addEventListener('click', ()
+</script>
+</body>
+</html>

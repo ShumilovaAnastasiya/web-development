@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class TodoList {
+  constructor() {
+    this.tasks = [];
+  }
+
+  addTask(task) {
+    this.tasks.push(task);
+    document.write(`Task "${task}" has been added to the list.`);
+    document.write("<br>");
+  }
+
+  removeTask(index) {
+    const task = this.tasks.splice(index, 1);
+    document.write(`Task "${task}" has been removed from the list.`);
+    document.write("<br>");
+  }
+
+  showTasks() {
+    if (this.tasks.length > 0) {
+      document.write('Tasks:');
+      document.write("<br>");
+      this.tasks.forEach((task, index) => {
+        document.write(`${index + 1}. ${task}`);
+        document.write("<br>");
+      });
+    } else {
+      document.write('No tasks in the list.');
+      document.write("<br>");
+    }
+  }
+
+  clear() {
+    this.tasks = [];
+    document.write('All tasks have been cleared from the list.');
+    document.write("<br>");
+  }
+}
+
+const todoList = new TodoList();
+todoList.showTasks(); // No tasks in the list.
+todoList.addTask('Buy groceries'); // Task "Buy groceries" has been added to the list.
+todoList.addTask('Do laundry'); // Task "Do laundry" has been added to the list.
+todoList.addTask('Pay bills'); // Task "Pay bills" has been added to the list.
+todoList.removeTask(1); // Task "Do laundry" has been removed from the list.
+todoList.showTasks();
+/*
+Tasks:
+1. Buy groceries
+2. Pay bills
+*/
+todoList.clear(); // All tasks have been cleared from the list.
+todoList.showTasks(); // No tasks in the list.
+</script>
+</body>
+</html>
